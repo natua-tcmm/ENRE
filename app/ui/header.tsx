@@ -22,6 +22,7 @@ export default function HeaderComponent() {
       const ipAddress = await getIPAddress();
       setIPAddress(ipAddress);
     })();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
