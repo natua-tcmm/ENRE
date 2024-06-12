@@ -44,6 +44,7 @@ export default function BiomeComponent() {
       const userName = await fetchBiomeUserName();
       setUserName(userName);
     })();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
