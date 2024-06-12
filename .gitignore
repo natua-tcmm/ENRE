@@ -44,3 +44,5 @@ ksu-*
 **/public/sw.js.map
 **/public/workbox-*.js
 **/public/workbox-*.js.map
+
+certificates

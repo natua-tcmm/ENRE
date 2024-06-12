@@ -20,7 +20,7 @@ import QuestionnaireComponent from "./ui/questionnaire";
 export default async function Home() {
   const user = await getUserFromCookie();
   user === null && redirect("/login");
-  const mode = await fetchMode(user?.uid);
+  const mode = await fetchMode(user?.uid); //modecollectionのdevを取ってる、usersのdev(usermode)
   const boardInfo = await fetchBoardInfo();
   const modalInfo = {
     title: boardInfo?.title || "",
@@ -31,7 +31,7 @@ export default async function Home() {
 
   return (
     <>
-      {(mode?.webMode && mode?.userMode) || !mode?.webMode ? (
+      {(mode?.webMode && mode?.userMode) || !mode?.webMode ? ( //firestoreのmodeがtrue且つ開発者ユーザー、またはfirestoreのmodeがfalse
         <>
           <main className="grid grid-rows-base-layout min-h-screen w-full pb-40 overflow-auto justify-items-center items-center">
             <Suspense fallback={<HeaderSkeleton />}>

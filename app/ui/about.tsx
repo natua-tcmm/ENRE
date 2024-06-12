@@ -32,7 +32,7 @@ export default function AboutComponent() {
       </p>
       <h2 className="text-2xl font-bold mt-5">Enre（ver. 1.1.0）の概要</h2>
       <p className="text-lg">
-        Enre（ver1.1.0）は、2024年1月10日〜12日に開催される
+        Enre（ver1.1.0）は、2024年7月1日〜5日に開催される
         <span className="font-bold no-underline text-green-700">
           学内のイベント・社会環境活動 （プレイベント）を案内します
         </span>
