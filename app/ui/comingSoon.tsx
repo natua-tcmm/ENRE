@@ -1,5 +1,6 @@
 import HeaderComponent from "./header";
 import InstallMethodComponent from "./installMethod";
+import Link from "next/link";
 
 export default async function ComingSoonComponent() {
   return (
@@ -14,6 +15,14 @@ export default async function ComingSoonComponent() {
             本アプリケーションをスマートフォンの
             ホーム画面に追加してお待ちください
           </p>
+          <Link
+            href="https://kankyoseisaku.pupu.jp/enre/#content"
+            target="_blank"
+            className="m-0 text-blue-600 underline"
+          >
+            ホームページはこちら
+          </Link>
+          <p></p>
         </div>
         <p className="font-bold text-xl text-center">
           アプリケーションを
