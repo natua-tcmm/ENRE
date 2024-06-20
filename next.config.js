@@ -6,7 +6,7 @@ const withPWA = require("next-pwa")({
   skipWaiting: true,
   runtimeCaching: [
     {
-      urlPattern: /^https:\/\/ease-congestion-exp.vercel.app\//,
+      urlPattern: /^https:\/\/www.enre-official.com\//,
       handler: "NetworkFirst",
       options: {
         cacheName: "offlineCache",
