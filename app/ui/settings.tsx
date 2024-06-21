@@ -59,7 +59,7 @@ export default function SettingsComponent() {
     }
   }, [router, error]);
 
-  const days = ["1/10", "1/11", "1/12"];
+  const days = ["7/1", "7/2", "7/3", "7/4", "7/5"];
   const periods = ["1限", "2限", "昼休", "3限", "4限", "5限"];
   const [selectedCells, setSelectedCells] = useState(initialTimeTable);
 
