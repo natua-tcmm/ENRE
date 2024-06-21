@@ -11,7 +11,7 @@ export default function ChangePassword() {
         <HeaderComponent />
       </Suspense>
       <ChangePasswordComponent />;
-      <FooterComponent />
+      {/* <FooterComponent /> */}
     </main>
   );
 }
