@@ -83,6 +83,20 @@ export default function AboutComponent() {
         </span>
         を成長させよう！
       </p>
+      <div className="flex">
+        <div className="w-1/2 flex justify-center items-center">
+          <Link href={"/story"} className="no-underline">
+            <Image src="/gama2.png" width={130} height={130} alt="charactor"/>
+          </Link>
+        </div>
+        <div className="w-1/2 flex justify-center items-center">
+          <Link href={"/story"} className="no-underline text-black">
+            <button className="text-sm font-bold rounded-md border-2 border-green-700">
+              ガマちゃんって？
+            </button>
+          </Link>
+        </div>
+      </div>
       <h2 className="text-2xl font-bold mt-5">企画・制作</h2>
       <p className="text-lg text-center">
         本取組は、グリーンインフラの社会実装に向けた研究活動として、以下の２つの研究室が協働しておこなっています。
