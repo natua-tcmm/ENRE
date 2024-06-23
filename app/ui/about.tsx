@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import packageJson from "../../package.json";
 
 export default function AboutComponent() {
+  const version = packageJson.version;
   return (
     <main className="flex flex-col items-center justify-center min-h-screen px-3">
       <Image
@@ -23,15 +25,15 @@ export default function AboutComponent() {
       <p className="text-lg text-center mt-5">
         無限大の可能性を秘めたキャンパスライフをさらに有意義にしてみませんか？
       </p>
-      <h2 className="text-2xl font-bold mt-5">Enre（ver. 2.0.0）の概要</h2>
+      <h2 className="text-2xl font-bold mt-5">Enre（ver. {version}）の概要</h2>
       <p className="text-lg text-center mt-5">
-        Enre（ver2.0.0）は2024年7月1日～7月5日のEnre weekを皮切りにEnre（ver1.1.0）は7月31日まで使用することが可能になっています。
+        Enre（ver{version}）は2024年7月1日～7月5日のEnre weekを皮切りにEnre（ver1.1.0）は7月31日まで使用することが可能になっています。
       </p>
       <p className="text-lg text-center mt-5">
         Enreを使うことであなたの様々なイベントや活動への参加記録がEnreポイントやポイントを貯めることで成長するEnre公式キャラクター”ガマちゃん”によって簡単に把握することが出来ます。
       </p>
       <p className="text-lg text-center mt-5">
-        更に、今回のEnre（ver2.0.0）ではver1.1.0には無かった機能が追加予定です！
+        更に、今回のEnre（ver{version}）ではver1.1.0には無かった機能が追加予定です！
       </p>
       <p className="text-lg text-center mt-5">
         ・混雑状況が確認できる
@@ -69,13 +71,17 @@ export default function AboutComponent() {
         ・様々な種類のイベントが一挙に集約
       </p>
       <p className="text-lg text-center">
-         Enreを使ってイベントを探して参加・記録しよう！
+        Enreを使ってイベントを探して参加・記録しよう！
       </p>
       <p className="text-lg text-center mt-5">
-         ・イベント参加でEnreポイントがゲット可能
+        ・イベント参加でEnreポイントがゲット可能
       </p>
       <p className="text-lg text-center">
-         ポイントゲットでガマちゃんを成長させよう！
+        ポイントゲットで
+        <span className="font-bold no-underline text-green-700">
+          ガマちゃん
+        </span>
+        を成長させよう！
       </p>
       <h2 className="text-2xl font-bold mt-5">企画・制作</h2>
       <p className="text-lg text-center">
