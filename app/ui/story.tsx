@@ -11,7 +11,7 @@ export default function StoryComponent() {
         <div className="w-1/2 flex justify-center items-center">
           <Image src="/gama1.png" width={200} height={200} alt="charactor"/>
         </div>
-        <div className="w-1/2">
+        <div className="w-1/2 flex justify-center items-center">
           <p className="text-lg text-center">
             Enreポイントで<br/>ガマちゃんを成長させよう！
           </p>
@@ -23,7 +23,7 @@ export default function StoryComponent() {
         このストーリーは神様見習いのガマちゃんが新たな挑戦や出会い、経験を経て”タニグク”へと成長する物語である…！
       </p>
       <div className="flex">
-        <div className="w-1/2">
+        <div className="w-1/2 flex justify-center items-center">
           <p className="text-lg text-center">
             キャンパスには<br/>
             ・美しい自然環境<br/>
