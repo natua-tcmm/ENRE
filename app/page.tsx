@@ -59,13 +59,13 @@ export default async function Home() {
                 </div>
                 <div className="row-start-4 col-start-1 col-end-2">
                   <QuestionnaireComponent
-                    link="https://docs.google.com/forms/d/e/1FAIpQLSdnAemr4zSZEag-RtAhnc-mXKA9dNhQIp1_OVISjA8gmLvcyQ/viewform?edit_requested=true"
+                    link="https://docs.google.com/forms/d/e/1FAIpQLSdnAemr4zSZEag-RtAhnc-mXKA9dNhQIp1_OVISjA8gmLvcyQ/viewform"
                     title="アンケート①"
                   />
                 </div>
                 <div className="row-start-4 col-start-2 col-end-3">
                   <QuestionnaireComponent
-                    link="https://docs.google.com/forms/d/e/1FAIpQLSfgc24HvqvQ7TTc6xBMsGSCD6S37-iDOpDugQ_1cjDOTcM8Bw/viewform?edit_requested=true"
+                    link="https://docs.google.com/forms/d/e/1FAIpQLSfgc24HvqvQ7TTc6xBMsGSCD6S37-iDOpDugQ_1cjDOTcM8Bw/viewform"
                     title="アンケート②"
                   />
                 </div>
