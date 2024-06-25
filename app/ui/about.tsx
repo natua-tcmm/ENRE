@@ -48,6 +48,30 @@ export default function AboutComponent() {
         「イベントリスト」
       </p>
       <p className="text-lg text-center mt-5">
+        ・様々なイベントの様子をユーザー間で共有しよう！
+      </p>
+      <p className="text-lg font-bold text-center">
+        「みんなのアルバム」
+      </p>
+      <p className="text-lg text-center mt-5">
+        ・あなたのイベント参加を記録する
+      </p>
+      <p className="text-lg font-bold text-center">
+        「あなたの参加記録」
+      </p>
+      <p className="text-lg text-center mt-5">
+        ・学内1のEnreユーザーを目指そう！Enreユーザーの獲得ポイントランキングを表示
+      </p>
+      <p className="text-lg font-bold text-center">
+        「ユーザーランキング」
+      </p>
+      <p className="text-lg text-center mt-5">
+        ・3つのジャンルのイベントへの参加度合いで3種類の分岐成長を可能に！
+      </p>
+      <p className="text-lg font-bold text-center">
+        「ガマちゃん分岐成長」
+      </p>
+      <p className="text-lg text-center mt-5">
         Enreはこれからも皆様と共に成長し、大学や様々な地域をイベントや環境貢献行動などを促すことで活性化するツールとして進んでいきます。
       </p>
       <p className="text-lg text-center mt-5">
