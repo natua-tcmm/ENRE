@@ -106,7 +106,7 @@ export async function postCollectionInLogs(
 
 export async function postUserInfo(uid: string, nickName: string) {
   const initialTimeTable: { [key: number]: boolean[] } = Object.fromEntries(
-    Array.from({ length: 6 }, (_, i) => [i, Array(3).fill(false)])
+    Array.from({ length: 6 }, (_, i) => [i, Array(5).fill(false)])
   );
   const userInfo = {
     checkinProgramIds: [],
@@ -304,6 +304,15 @@ export async function fetchAllOnlinePrograms() {
     console.log(error);
     throw new Error("プログラムの取得に失敗しました");
   }
+}
+
+export async function fetchAllPrograms() {
+  const programRef = await adminDB.collection("program").get();
+  const programList: any[] = programRef.docs.map((program: any) => {
+    const programData = program.data();
+    return programData;
+  });
+  return programList;
 }
 
 export async function postSignature(sign: string) {
