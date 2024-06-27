@@ -26,7 +26,8 @@ export default function BiomeComponent() {
   const searchParams = useSearchParams();
   const programId = searchParams.get("programId") || "";
   const rewardPoint = searchParams.get("rewardPoint") || "";
-  const href = `/biome/postbiome?programId=${programId}&rewardPoint=${rewardPoint}`;
+  const rewardField = searchParams.get("rewardField") || "";
+  const href = `/biome/postbiome?programId=${programId}&rewardPoint=${rewardPoint}&rewardField=${rewardField}`;
 
   useEffect(() => {
     if (error.message === "success" || userName !== "") {
