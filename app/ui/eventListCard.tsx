@@ -13,6 +13,8 @@ type Spots = {
     process: string[];
     caution: string[];
     condition: string[];
+    owner: string,
+    isOpen: boolean,
   }[];
 };
 
@@ -25,7 +27,7 @@ export default function EventListComponent({ spotsInfo }: Spots) {
         <div className="absolute p-1 w-full md:w-5/12 items-center">
           {spotsInfo.map((spotInfo, index) => {
             return (
-              <div key={index} className="mb-1">
+              <div key={index} className="mb-2 mx-1">
                 <DetailCardComponent
                   spotInfo={spotInfo}
                   thema="white"
