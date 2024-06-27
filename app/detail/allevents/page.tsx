@@ -1,3 +1,4 @@
+// 使ってないよ！！！！！！！！！！！！！！！！
 import HeaderComponent from "@/app/ui/header";
 import FooterComponent from "@/app/ui/footer";
 import EventDetailComponent from "@/app/ui/eventDetail";
