@@ -24,6 +24,7 @@ export default async function CharactorComponent() {
   const imageName = "/icon" + evoState + ".png";
 
   // TODO ガマちゃん分岐成長処理
+  // TODO 姿を変える
   // ここでポイント別のやつを取得できるとする
   const currentRewardOurDoor = 100;
   const currentRewardKnowledge = 100;
