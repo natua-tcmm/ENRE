@@ -4,6 +4,7 @@ import { NotificationComponent, NotificationView } from "../ui/notification";
 
 export default function Notification() {
   return (
+    // TODO なんかレイアウト変
     <main className="flex min-h-screen flex-col items-center justify-between p-0 text-center">
       <HeaderComponent />
       <NotificationView />

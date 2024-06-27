@@ -72,6 +72,8 @@ export default function SettingsComponent() {
     });
   };
 
+  // TODO ホームに戻る追加
+
   return (
     <main className="flex flex-col items-center justify-center min-h-screen py-2">
       <h1 className="text-2xl font-bold mb-4">設定</h1>

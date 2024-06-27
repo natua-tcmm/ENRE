@@ -85,6 +85,8 @@ export default function LoadingComponent() {
     };
   }, [router, searchParams]);
 
+  {/* TODO きれいにする */}
+
   return (
     <main className="flex flex-col items-center justify-center min-h-screen py-2">
       {participated ? (

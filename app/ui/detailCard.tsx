@@ -25,6 +25,7 @@ export default function DetailCardComponent({
   thema,
   textColor,
 }: Props) {
+
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
