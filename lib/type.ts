@@ -1,4 +1,5 @@
 import type { GeoPoint } from "@firebase/firestore-types";
+import { Timestamp } from "firebase/firestore";
 
 export type Photo = {
   date: Date;
@@ -22,7 +23,11 @@ export type UserSettings = {
 export type Place = {
   name: string;
   congestion: number;
-  center: GeoPoint;
-  latitude: number;
-  longitude: number;
+  center: GeoPoint | null;
+  latitude: number | null;
+  longitude: number | null;
+  isOpen: boolean;
+  openTime: number;
+  closeTime: number;
+  updateAt: Timestamp;
 };

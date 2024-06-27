@@ -23,6 +23,7 @@ export default function WalkComponent() {
   const [isFinished, setIsFinished] = useState<boolean | null>(null);
   const searchParams = useSearchParams();
   const reward = searchParams.get("rewardPoint") || "";
+  const rewardField = searchParams.get("rewardField") || "";
   const programId = searchParams.get("programId") || "";
 
   useEffect(() => {
@@ -60,7 +61,7 @@ export default function WalkComponent() {
       await patchCheckoutProgramIds(programId);
       await patchParticipatedEvents(programId);
       await patchCurrentPlace("Home");
-      await patchReward(reward);
+      await patchReward(reward, rewardField);
       setIsWalking(false);
       setIsFinished(true);
     })();

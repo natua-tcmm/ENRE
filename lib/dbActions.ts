@@ -2,7 +2,7 @@
 
 import { adminDB } from "@/lib/firebase/server";
 import { getUserFromCookie } from "@/lib/session";
-import { z } from "zod";
+import { number, z } from "zod";
 import type { Place } from "@/lib/type";
 
 export async function fetchPhotosInfo() {
@@ -130,6 +130,12 @@ export async function postUserInfo(uid: string, nickName: string) {
       1: false,
       2: false,
     },
+    rewardField: {
+      C: 0,
+      N: 0,
+      O: 0,
+    },
+    giPoint: 0,
   };
   await adminDB
     .collection("users")
@@ -205,21 +211,41 @@ export async function fetchProgramInfo(programId: string) {
 
 export async function fetchReward() {
   const user = await getUserFromCookie();
-  if (!user) return { currentReward: 0, prevReward: 0 };
+  if (!user) return { currentReward: 0, prevReward: 0 , rewardC: 0, rewardN: 0, rewardO: 0 };
   const uid = user.uid;
   const userRef = await adminDB.collection("users").doc(uid).get();
   const currentReward: number = userRef.data().reward || 0;
   const prevReward: number = userRef.data().prevReward || 0;
-  return { currentReward, prevReward };
+  {/* 各属性のポイントを取得しないといけない　*/}
+  const rewardFieldCNO = userRef.data().rewardField || {}; // rewardFieldが存在しない場合に空のオブジェクトをデフォルトで設定する
+  const rewardC: number = rewardFieldCNO.C || 0;
+  const rewardN: number = rewardFieldCNO.N || 0;
+  const rewardO: number = rewardFieldCNO.O || 0;
+  return { currentReward, prevReward ,rewardC, rewardN, rewardO};
 }
 
-export async function patchReward(rewardPoint: string, rewardField?: string) {
+export async function patchReward(rewardPoint: string, rewardField: string) {
   const user = await getUserFromCookie();
   if (!user) return;
   const uid = user.uid;
   try {
-    const { currentReward } = await fetchReward();
+    const { currentReward, rewardC, rewardN, rewardO} = await fetchReward();
     const nextReward = currentReward + Number(rewardPoint);
+    let nextC = rewardC;
+    let nextN = rewardN;
+    let nextO = rewardO;
+    if (rewardField === "C") {
+      nextC = rewardC + Number(rewardPoint);
+    }
+    if (rewardField === "N") {
+      nextN = rewardN + Number(rewardPoint);
+    }
+    if (rewardField === "O") {
+      nextO = rewardO + Number(rewardPoint);
+    }
+    if (currentReward === 0 && nextReward > 0) {
+      await postCollectionInLogs("初回報酬", "start", "start");
+    }
     if (currentReward === 0 && nextReward > 0) {
       await postCollectionInLogs("初回報酬", "start", "start");
     }
@@ -230,6 +256,11 @@ export async function patchReward(rewardPoint: string, rewardField?: string) {
       {
         reward: nextReward,
         prevReward: currentReward,
+        rewardField: {
+          C: nextC,
+          N: nextN,
+          O: nextO,
+        },
       },
       { merge: true }
     );
@@ -395,20 +426,25 @@ export async function fetchBiomeUserName() {
 }
 
 export async function fetchParticipatedEvents() {
-  const initialParticipatedEvents: { [key: number]: number } = {
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-    6: 0,
-    7: 0,
-    8: 0,
-    9: 0,
-    10: 0,
-    11: 0,
-    12: 0,
-  };
+  // const initialParticipatedEvents: { [key: number]: number } = {
+  //   1: 0,
+  //   2: 0,
+  //   3: 0,
+  //   4: 0,
+  //   5: 0,
+  //   6: 0,
+  //   7: 0,
+  //   8: 0,
+  //   9: 0,
+  //   10: 0,
+  //   11: 0,
+  //   12: 0,
+  // };
+  const initialParticipatedEvents: { [key: number]: number } = {};
+  {/* ゆくゆくは自動でイベント数用意されるようにしたい */}
+  for (let i = 1; i <= 54; i++) {
+    initialParticipatedEvents[i] = 0;
+  }
   const user = await getUserFromCookie();
   if (!user) return initialParticipatedEvents;
   const uid = user.uid;

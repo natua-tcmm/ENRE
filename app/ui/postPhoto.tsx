@@ -25,6 +25,7 @@ export default function UploadImage() {
   const [caution, setCaution] = useState<string[]>([]);
   const [condition, setCondition] = useState<string[]>([]);
   const [rewardPoint, setRewardPoint] = useState("");
+  const [rewardField, setRewardField] = useState("");
   const [photo, setPhoto] = useState<File | null>(null);
   const [error, setError] = useState("");
   const [createObjectURL, setCreateObjectURL] = useState("");
@@ -39,6 +40,7 @@ export default function UploadImage() {
       setCaution(programInfo.caution);
       setCondition(programInfo.condition);
       setRewardPoint(programInfo.rewardPoint);
+      setRewardField(programInfo.rewardField);
     })();
   }, []);
 
@@ -103,7 +105,7 @@ export default function UploadImage() {
         body: JSON.stringify({ postData }),
       });
       if (resPostPhoto.ok) {
-        await patchReward(rewardPoint);
+        await patchReward(rewardPoint, rewardField);
         const title = "写真を投稿しました";
         const state = "postPhoto";
         await postCollectionInLogs(title, place, state);

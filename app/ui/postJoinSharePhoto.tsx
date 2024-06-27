@@ -25,22 +25,24 @@ export default function PostJoinShareComponent() {
   // const [caution, setCaution] = useState<string[]>([]);
   // const [condition, setCondition] = useState<string[]>([]);
   // const [rewardPoint, setRewardPoint] = useState("");
+  const [rewardField, setRewardField] = useState("");
   const [photo, setPhoto] = useState<File | null>(null);
   const [error, setError] = useState("");
   const [createObjectURL, setCreateObjectURL] = useState("");
   const [isPushButton, setIsPushButton] = useState(false);
-  // const programId = searchParams.get("programId") || "";
+  const programId = searchParams.get("programId") || "";
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const programInfo = await fetchProgramInfo(programId);
-  //     setContent(programInfo.content);
-  //     setProcess(programInfo.process);
-  //     setCaution(programInfo.caution);
-  //     setCondition(programInfo.condition);
-  //     setRewardPoint(programInfo.rewardPoint);
-  //   })();
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      const programInfo = await fetchProgramInfo(programId);
+      // setContent(programInfo.content);
+      // setProcess(programInfo.process);
+      // setCaution(programInfo.caution);
+      // setCondition(programInfo.condition);
+      // setRewardPoint(programInfo.rewardPoint);
+      setRewardField(programInfo.rewardField);
+    })();
+  }, []);
 
   const uploadToClient = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -103,7 +105,7 @@ export default function PostJoinShareComponent() {
         body: JSON.stringify({ postData }),
       });
       if (resPostPhoto.ok) {
-        await patchReward("5");
+        await patchReward("5", rewardField);
         const title = "写真を共有しました";
         const state = "postPhoto";
         await postCollectionInLogs(title, place, state);
