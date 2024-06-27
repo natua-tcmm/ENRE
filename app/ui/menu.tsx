@@ -6,6 +6,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import packageJson from "../../package.json";
+import Image from "next/image";
 
 export default function MenuComponent({ nickName }: { nickName: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,18 +26,13 @@ export default function MenuComponent({ nickName }: { nickName: string }) {
     };
   }, [menuRef]);
 
+  // TODO デザイン整える
+
   return (
     <div className="relative inline-block text-left z-20" ref={menuRef}>
-      <button
-        onClick={() => setMenuOpen(!menuOpen)}
-        type="button"
-        className="flex flex-col z-10 space-y-2 text-center items-center text-green-700 font-bold focus:outline-none"
-      >
-        Menu
-        <div className="w-8 h-0.5 bg-green-800" />
-        <div className="w-8 h-0.5 bg-green-800" />
-        <div className="w-8 h-0.5 bg-green-800" />
-      </button>
+      <div className="justify-self-center items-center">
+          <Image src="/settings.png" width={60} height={60} alt="settings" onClick={() => setMenuOpen(!menuOpen)} />
+      </div>
       {menuOpen && (
         <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#f5ffec] ring-1 ring-black ring-opacity-5">
           <div
