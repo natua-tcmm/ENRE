@@ -10,8 +10,9 @@ export default async function CharactorComponent() {
   };
 
   const quote = handleCharactorClick();
-  // const { currentReward, prevReward } = await fetchReward();
-  const currentReward = 45;
+  // TODO デバッグ用なので変更する
+  const { currentReward, prevReward } = await fetchReward();
+  // const currentReward = 104;
 
   const evoThresholdList = [0, 6, 50, 100, 500];
   const evoState =
@@ -22,7 +23,7 @@ export default async function CharactorComponent() {
   const nextEvoThreshold = evoThresholdList[evoState];
   const imageName = "/icon" + evoState + ".png";
 
-  // TODO ガマちゃん分岐進化処理
+  // TODO ガマちゃん分岐成長処理
   // ここでポイント別のやつを取得できるとする
   const currentRewardOurDoor = 100;
   const currentRewardKnowledge = 100;
@@ -81,7 +82,7 @@ export default async function CharactorComponent() {
         <div className="row-start-1 col-start-2 col-end-5 place-self-start self-center text-sm">
           {evoState != 4 && (
             <span>
-              進化まで: <span className="font-bold">{nextEvoThreshold - currentReward}pt</span>
+              成長まで: <span className="font-bold">{nextEvoThreshold - currentReward}pt</span>
             </span>
           )}
           {evoState == 4 && (
