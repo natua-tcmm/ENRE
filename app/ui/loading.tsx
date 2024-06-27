@@ -161,6 +161,14 @@ export default function LoadingComponent() {
               <h1 className="text-sm font-bold text-center mb-10">
                 獲得した報酬はホーム画面から確認できます。
               </h1>
+              <h1 className="text-sm font-bold text-center mb-10">
+                イベントに参加している様子を共有し、追加でポイントを獲得しよう！
+              </h1>
+              <Link href="/photoalbum/postjoinshare" className="no-underline">
+                <button className="flex justify-center items-center bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded">
+                  詳細
+                </button>
+              </Link>
             </div>
           )}
         </>
