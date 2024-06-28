@@ -23,7 +23,7 @@ export default function EventList(
         <Suspense fallback={<HeaderSkeleton />}>
             <HeaderComponent />
         </Suspense>
-        {/* TODO マップ 絞り込み(ButtonCompornentをけしてDetailに書く) 一番下 */}
+        {/* TODO 1 マップ 絞り込み(ButtonCompornentをけしてDetailに書く) 一番下 */}
         <EventButtonComponent />
         <EventDetail2Component key={key} value={value} />
         <FooterComponent />

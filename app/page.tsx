@@ -40,7 +40,7 @@ export default async function Home() {
             <div className="row-start-2 pt-2 ml-2 mr-2">
               <div className="grid grid-rows-max-content-layout-4 grid-cols-2 gap-2 w-full">
                 <div className="row-start-1 col-start-1 col-end-3">
-                  {/* TODO スケルトン */}
+                  {/* TODO 1 スケルトン */}
                   <Suspense fallback={<CharacterSkeleton />}>
                     <CharactorComponent />
                   </Suspense>
@@ -51,7 +51,7 @@ export default async function Home() {
                 <div className="row-start-3 col-start-1 col-end-3">
                   <WatchCardComponent />
                 </div>
-                {/* TODO アンケート詳細は見れるようにしたい */}
+                {/* TODO 2 アンケート詳細は見れるようにしたい */}
                 <div className="row-start-4 col-start-1 col-end-2">
                   <QuestionnaireComponent
                     link="https://docs.google.com/forms/d/e/1FAIpQLSdnAemr4zSZEag-RtAhnc-mXKA9dNhQIp1_OVISjA8gmLvcyQ/viewform"

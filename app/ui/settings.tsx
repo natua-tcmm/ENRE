@@ -72,7 +72,7 @@ export default function SettingsComponent() {
     });
   };
 
-  // TODO ホームに戻る追加
+  // TODO 2 ホームに戻る追加
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen py-2">

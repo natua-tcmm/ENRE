@@ -10,7 +10,7 @@ export default async function CharactorComponent() {
   };
 
   const quote = handleCharactorClick();
-  // TODO デバッグ用なので変更する
+  // TODO 1 デバッグ用なので変更する
   const { currentReward, prevReward } = await fetchReward();
   // const currentReward = 104;
 
@@ -23,8 +23,8 @@ export default async function CharactorComponent() {
   const nextEvoThreshold = evoThresholdList[evoState];
   const imageName = "/icon" + evoState + ".png";
 
-  // TODO ガマちゃん分岐成長処理
-  // TODO 姿を変える
+  // TODO 1 ガマちゃん分岐成長処理
+  // TODO 1 姿を変える
   // ここでポイント別のやつを取得できるとする
   const currentRewardOurDoor = 100;
   const currentRewardKnowledge = 100;
@@ -35,7 +35,7 @@ export default async function CharactorComponent() {
   const gamaTypeString = ["アウトドア","ナレッジ","コミュニティ"][gamaType];
   const gamaTypeStringColor = "font-bold " + ["text-red-600","text-blue-600","text-yellow-600"][gamaType];
 
-  // TODO GIポイント
+  // TODO 1 GIポイント
 
   return (
     <div className="w-full">
