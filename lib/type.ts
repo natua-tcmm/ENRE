@@ -30,4 +30,5 @@ export type Place = {
   openTime: number;
   closeTime: number;
   updateAt: Timestamp;
+  threshold: number[];
 };
