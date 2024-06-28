@@ -373,6 +373,41 @@ export async function fetchPlace(docId?: string) {
   }
 }
 
+// export async function fetchPlace2(docId: string) {
+//   try {
+//     if (!docId) return { placeName: "なし", placeCongestion: 0 };
+//     const placeRef = await adminDB.collection("place").doc(docId).get()
+//     const placeName: string = placeRef.data().name || "";
+//     const placeCongestion: number = placeRef.data().congestion || 0;
+//     return {placeName, placeCongestion};
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+export async function fetchPlace2(docId: string) {
+  try {
+    if (!docId) return { placeName: "ドキュメントがない", placeCongestion: 0 };
+
+    const placeRef = await adminDB.collection("place").doc(docId).get();
+    const placeData = placeRef.data();
+
+    if (!placeData) {
+      return { placeName: "データがない", placeCongestion: 0 };
+    }
+
+    const placeName: string = placeData.name || "";
+    const placeCongestion: number = placeData.congestion || 0;
+
+    return { placeName, placeCongestion };
+  } catch (error) {
+    console.log(error);
+    // エラーが発生した場合、エラー処理を行うか、適切なデフォルト値を返すことも考慮する
+    return { placeName: "エラー発生", placeCongestion: 0 };
+  }
+}
+
+
 export async function fetchMode(uid: string) {
   try {
     const modeRef = await adminDB.collection("mode").doc("mode").get();

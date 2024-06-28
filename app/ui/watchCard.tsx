@@ -3,11 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import { fetchPlace2 } from "@/lib/dbActions";
+import CongestionComponent from "./congestion";
 
 export default function WatchCardComponent() {
 
   const [isExpanded, setIsExpanded] = useState(false);
-
+  
   return (
     <div className="w-full bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl px-0.5 py-2">
       <div className="grid grid-cols-1 gap-2 p-3">
@@ -19,7 +21,9 @@ export default function WatchCardComponent() {
 
           <div className="col-start-1 col-end-2 text-sm pl-2 py-1 mt-0 mb-1 border-l-4 border-green-600 justify-self-start">すき家</div>
           <div className="col-start-2 col-end-3 text-sm py-1 mt-0 mb-1 justify-self-end">混雑度</div>
-
+          <div className="col-start-2 col-end-3 text-sm py-1 mt-0 mb-1 justify-self-end">
+           <CongestionComponent docId={"Hall1"}/>
+          </div>
 
           <div className="col-start-1 col-end-3 text-sm px-1 mt-0 mb-1 justify-self-center font-bold text-red-500">
             近くの
