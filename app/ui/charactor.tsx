@@ -35,6 +35,8 @@ export default async function CharactorComponent() {
   const gamaTypeString = ["アウトドア","ナレッジ","コミュニティ"][gamaType];
   const gamaTypeStringColor = "font-bold " + ["text-red-600","text-blue-600","text-yellow-600"][gamaType];
 
+  // TODO GIポイント
+
   return (
     <div className="w-full">
       {/* ふきだし */}
