@@ -26,7 +26,7 @@ export default function MenuComponent({ nickName }: { nickName: string }) {
     };
   }, [menuRef]);
 
-  // TODO デザイン整える
+  // TODO 3 デザイン整える
 
   return (
     <div className="relative inline-block text-left z-20" ref={menuRef}>

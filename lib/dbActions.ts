@@ -393,13 +393,14 @@ export async function fetchPlace2(docId: string) {
     const placeData = placeRef.data();
 
     if (!placeData) {
-      return { placeName: "データがない", placeCongestion: 0 };
+      return { placeName: "(取得失敗)", placeCongestion: 0, placeThreshold: [10,20,30] };
     }
 
     const placeName: string = placeData.name || "";
     const placeCongestion: number = placeData.congestion || 0;
+    const placeThreshold: Array<number> = placeData.threshold || [10,20,30];
 
-    return { placeName, placeCongestion };
+    return { placeName, placeCongestion, placeThreshold };
   } catch (error) {
     console.log(error);
     // エラーが発生した場合、エラー処理を行うか、適切なデフォルト値を返すことも考慮する
