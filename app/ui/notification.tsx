@@ -84,14 +84,14 @@ export function NotificationView() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-0 text-center w-full">
-      <div className="justify-center mt-24 w-full h-full">
-        <div className="text-2xl font-bold mb-20 top-24 w-full">
+    <main className="flex min-h-screen flex-col items-center justify-between pb-[79px] text-center w-full">
+      <div className="justify-center mt-24 w-full h-full fixed">
+        <div className="text-2xl font-bold mb-20 top-24 w-full fixed">
           <h1 className="text-center">通知</h1>
         </div>
         <div
-          className="grid grid-cols-1 w-full overflow-scroll mt-20 min-h-[74%]"
-          style={{ maxHeight: "calc(100vh - 1000px - 4rem)" }} // フッターの高さを考慮して修正
+          className="grid grid-cols-1 w-full mt-20 overflow-scroll min-h-[20%]"
+          style={{ maxHeight: "calc(100% - 300px)" }} // フッターの高さを考慮して修正
         >
           {/* 通知データをループして表示する */}
           {notificationList.map((notification, index) => (

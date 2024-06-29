@@ -69,6 +69,9 @@ export default function LoadingComponent() {
         await patchCheckoutProgramIds(`${qrInfo.programId}`);
         await patchParticipatedEvents(qrId);
         setCheckout(true);
+        setLink(
+          `/photoalbum/postjoinshare?programId=${qrInfo.programId}&rewardPoint=${programInfo.rewardPoint}&rewardField=${programInfo.rewardField}`
+        );
       } else {
         if (participatedEvents[Number(qrId)] > 0) {
           setParticipated(true);
@@ -85,7 +88,7 @@ export default function LoadingComponent() {
     };
   }, [router, searchParams]);
 
-  {/* TODO 3 きれいにする */}
+  {/* TODO 3 きれいにする okamoto手を加える */}
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen py-2">
@@ -166,7 +169,7 @@ export default function LoadingComponent() {
               <h1 className="text-sm font-bold text-center mb-10">
                 イベントに参加している様子を共有し、追加でポイントを獲得しよう！
               </h1>
-              <Link href="/photoalbum/postjoinshare" className="no-underline">
+              <Link href={link} className="no-underline">
                 <button className="flex justify-center items-center bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded">
                   詳細
                 </button>
