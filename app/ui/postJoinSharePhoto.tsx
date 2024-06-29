@@ -105,7 +105,7 @@ export default function PostJoinShareComponent() {
         body: JSON.stringify({ postData }),
       });
       if (resPostPhoto.ok) {
-        await patchReward("5", rewardField);
+        await patchReward("5", rewardField, "0");
         const title = "写真を共有しました";
         const state = "postPhoto";
         await postCollectionInLogs(title, place, state);

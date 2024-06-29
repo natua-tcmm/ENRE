@@ -211,7 +211,7 @@ export async function fetchProgramInfo(programId: string) {
 
 export async function fetchReward() {
   const user = await getUserFromCookie();
-  if (!user) return { currentReward: 0, prevReward: 0 , rewardC: 0, rewardN: 0, rewardO: 0 };
+  if (!user) return { currentReward: 0, prevReward: 0 , rewardC: 0, rewardN: 0, rewardO: 0, gip: 0};
   const uid = user.uid;
   const userRef = await adminDB.collection("users").doc(uid).get();
   const currentReward: number = userRef.data().reward || 0;
@@ -221,16 +221,18 @@ export async function fetchReward() {
   const rewardC: number = rewardFieldCNO.C || 0;
   const rewardN: number = rewardFieldCNO.N || 0;
   const rewardO: number = rewardFieldCNO.O || 0;
-  return { currentReward, prevReward ,rewardC, rewardN, rewardO};
+  const gip: number = userRef.data().gipoint || 0;
+  return { currentReward, prevReward ,rewardC, rewardN, rewardO, gip};
 }
 
-export async function patchReward(rewardPoint: string, rewardField: string) {
+export async function patchReward(rewardPoint: string, rewardField: string, gipoint: string) {
   const user = await getUserFromCookie();
   if (!user) return;
   const uid = user.uid;
   try {
-    const { currentReward, rewardC, rewardN, rewardO} = await fetchReward();
+    const { currentReward, rewardC, rewardN, rewardO, gip } = await fetchReward();
     const nextReward = currentReward + Number(rewardPoint);
+    let nextgip = gip + Number(gipoint);
     let nextC = rewardC;
     let nextN = rewardN;
     let nextO = rewardO;
@@ -261,6 +263,7 @@ export async function patchReward(rewardPoint: string, rewardField: string) {
           N: nextN,
           O: nextO,
         },
+        giPoint: nextgip,
       },
       { merge: true }
     );

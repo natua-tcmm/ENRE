@@ -24,7 +24,6 @@ export default function WatchCardComponent() {
           {placeIdList1.map((placeId, index) => {
             return (
               <CongestionComponent key={index} docId={placeId} />
-              
             );
           })}
 

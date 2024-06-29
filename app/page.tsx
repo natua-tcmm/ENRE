@@ -49,6 +49,7 @@ export default async function Home() {
                     <CheckinEventsCardComponent />
                 </div>
                 <div className="row-start-3 col-start-1 col-end-3">
+                  {/* 表示速度の改善 */}
                   <WatchCardComponent />
                 </div>
                 {/* TODO 2 アンケート詳細は見れるようにしたい */}

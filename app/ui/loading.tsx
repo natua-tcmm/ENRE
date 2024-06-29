@@ -52,34 +52,34 @@ export default function LoadingComponent() {
           setParticipated(true);
           return;
         }
-        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`);
+        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`, `${qrInfo.rewardGIP}`);
         await patchCheckinProgramIds(`${qrInfo.programId}`);
         setCheckin(true);
         setLink(
           programInfo.link === null
             ? "/"
-            : `${programInfo.link}?programId=${qrInfo.programId}&rewardPoint=${programInfo.rewardPoint}&rewardField=${programInfo.rewardField}`
+            : `${programInfo.link}?programId=${qrInfo.programId}&rewardPoint=${programInfo.rewardPoint}&rewardField=${programInfo.rewardField}&rewardGIP=${programInfo.rewardGIP}`
         );
       } else if (qrInfo.type === "checkout") {
         if (participatedEvents[Number(qrId)] > 0) {
           setParticipated(true);
           return;
         }
-        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`);
+        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`, `${qrInfo.gipoint}`);
         await patchCheckoutProgramIds(`${qrInfo.programId}`);
         await patchParticipatedEvents(qrId);
         setCheckout(true);
         setLink(
-          `/photoalbum/postjoinshare?programId=${qrInfo.programId}&rewardPoint=${programInfo.rewardPoint}&rewardField=${programInfo.rewardField}`
+          `/photoalbum/postjoinshare?programId=${qrInfo.programId}&rewardPoint=${programInfo.rewardPoint}&rewardField=${programInfo.rewardField}&rewardGIP=${programInfo.rewardGIP}`
         );
       } else {
         if (participatedEvents[Number(qrId)] > 0) {
           setParticipated(true);
           return;
         }
-        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`);
+        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`, `${qrInfo.gipoint}`);
         router.push(
-          `${qrInfo.type}?programId=${qrInfo.programId}&place=${place}&rewardPoint=${programInfo.rewardPoint}&rewardField=${programInfo.rewardField}`
+          `${qrInfo.type}?programId=${qrInfo.programId}&place=${place}&rewardPoint=${programInfo.rewardPoint}&rewardField=${programInfo.rewardField}&rewardGIP=${programInfo.rewardGIP}`
         );
       }
     })();

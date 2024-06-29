@@ -26,6 +26,7 @@ export default function FallenLeavesComponent() {
   const [condition, setCondition] = useState<string[]>([]);
   const [rewardPoint, setRewardPoint] = useState("");
   const [rewardField, setRewardField] = useState("");
+  const [rewardGIP, setRewardGIP] = useState("");
   const [photo, setPhoto] = useState<File | null>(null);
   const [error, setError] = useState("");
   const [createObjectURL, setCreateObjectURL] = useState("");
@@ -41,6 +42,7 @@ export default function FallenLeavesComponent() {
       setCondition(programInfo.condition);
       setRewardPoint(programInfo.rewardPoint);
       setRewardField(programInfo.rewardField);
+      setRewardGIP(programInfo.rewardGIP);
     })();
   }, []);
 
@@ -105,7 +107,7 @@ export default function FallenLeavesComponent() {
         body: JSON.stringify({ postData }),
       });
       if (resPostPhoto.ok) {
-        await patchReward(rewardPoint, rewardField);
+        await patchReward(rewardPoint, rewardField, rewardGIP);
         const title = "落ち葉を投稿しました";
         const state = "fallenLeaves";
         await postCollectionInLogs(title, place, state);

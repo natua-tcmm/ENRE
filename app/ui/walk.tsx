@@ -24,6 +24,7 @@ export default function WalkComponent() {
   const searchParams = useSearchParams();
   const reward = searchParams.get("rewardPoint") || "";
   const rewardField = searchParams.get("rewardField") || "";
+  const rewardGIP = searchParams.get("rewardGIP") || "";
   const programId = searchParams.get("programId") || "";
 
   useEffect(() => {
@@ -61,7 +62,7 @@ export default function WalkComponent() {
       await patchCheckoutProgramIds(programId);
       await patchParticipatedEvents(programId);
       await patchCurrentPlace("Home");
-      await patchReward(reward, rewardField);
+      await patchReward(reward, rewardField, rewardGIP);
       setIsWalking(false);
       setIsFinished(true);
     })();

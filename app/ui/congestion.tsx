@@ -12,7 +12,6 @@ type Props = {
 
 export default function CongestionComponent({key, docId}: Props) {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const ref = useRef(false);
   const [name, setName] = useState("");
   const [congestion, setCongestion] = useState<number>(0);
