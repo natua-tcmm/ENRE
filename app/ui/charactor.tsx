@@ -30,12 +30,13 @@ export default async function CharactorComponent() {
   const currentRewardKnowledge = 100;
   const currentRewardCommunity = 101;
 
-  const currentRewordList =  [currentRewardOurDoor,currentRewardKnowledge,currentRewardCommunity];
+  const currentRewordList = [currentRewardOurDoor, currentRewardKnowledge, currentRewardCommunity];
   const gamaType = currentRewordList.indexOf(Math.max(...currentRewordList));
-  const gamaTypeString = ["アウトドア","ナレッジ","コミュニティ"][gamaType];
-  const gamaTypeStringColor = "font-bold " + ["text-red-600","text-blue-600","text-yellow-600"][gamaType];
+  const gamaTypeString = ["アウトドア", "ナレッジ", "コミュニティ"][gamaType];
+  const gamaTypeStringColor = "font-bold " + ["text-red-600", "text-blue-600", "text-yellow-600"][gamaType];
 
   // TODO 1 GIポイント
+  const currentGiPoint = 10;
 
   return (
     <div className="w-full">
@@ -77,11 +78,20 @@ export default async function CharactorComponent() {
           />
         </div>
       </div>
-      <div className="grid grid-rows-2 grid-cols-4 justify-items-center items-center p-2 ">
+      <div className="grid grid-rows-3 grid-cols-4 justify-items-center items-center p-2 ">
         <div className="row-start-1 col-start-1 col-end-2 text-sm">合計</div>
         <div className="row-start-2 col-start-1 col-end-2 text-xl font-bold text-green-600">
           {currentReward}pt
         </div>
+        <div className="row-start-3 col-start-1 col-end-3 text-sm">
+          (直近獲得pt {currentReward - prevReward > 0 ? (
+            <span className="text-red-500">
+              +{currentReward - prevReward}pt</span>
+          ) : (
+            <span className="text-black">--pt</span>
+          )})</div>
+        <div className="row-start-3 col-start-3 col-end-5 text-sm">GIポイント: <span className="font-bold text-green-600">{currentGiPoint}pt</span></div>
+
         <div className="row-start-1 col-start-2 col-end-5 place-self-start self-center text-sm">
           {evoState != 4 && (
             <span>
