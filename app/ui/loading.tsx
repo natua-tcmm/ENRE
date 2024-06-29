@@ -65,7 +65,7 @@ export default function LoadingComponent() {
           setParticipated(true);
           return;
         }
-        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`, `${qrInfo.gipoint}`);
+        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`, `${qrInfo.rewardGIP}`);
         await patchCheckoutProgramIds(`${qrInfo.programId}`);
         await patchParticipatedEvents(qrId);
         setCheckout(true);
@@ -77,7 +77,7 @@ export default function LoadingComponent() {
           setParticipated(true);
           return;
         }
-        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`, `${qrInfo.gipoint}`);
+        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`, `${qrInfo.rewardGIP}`);
         router.push(
           `${qrInfo.type}?programId=${qrInfo.programId}&place=${place}&rewardPoint=${programInfo.rewardPoint}&rewardField=${programInfo.rewardField}&rewardGIP=${programInfo.rewardGIP}`
         );

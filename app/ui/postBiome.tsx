@@ -31,6 +31,7 @@ export default function PostBiomeComponent() {
   const programId = searchParams.get("programId") || "";
   const rewardPoint = searchParams.get("rewardPoint") || "";
   const rewardField = searchParams.get("rewardField") || "";
+  const rewardGIP = searchParams.get("rewardGIP") || "";
   const href = `/biome?programId=${programId}&rewardPoint=${rewardPoint}`;
 
   const uploadToClient = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -117,14 +118,14 @@ export default function PostBiomeComponent() {
     rightTitle: "続けて投稿",
     leftOnClick: () => {
       (async () => {
-        await patchReward(rewardPoint, rewardField);
+        await patchReward(rewardPoint, rewardField, rewardGIP);
         await patchCheckoutProgramIds(programId);
         router.push("/");
       })();
     },
     rightOnClick: () => {
       (async () => {
-        await patchReward(rewardPoint, rewardField);
+        await patchReward(rewardPoint, rewardField, rewardGIP);
         setPhoto(null);
         setError("");
         setCreateObjectURL("");

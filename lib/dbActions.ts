@@ -221,7 +221,7 @@ export async function fetchReward() {
   const rewardC: number = rewardFieldCNO.C || 0;
   const rewardN: number = rewardFieldCNO.N || 0;
   const rewardO: number = rewardFieldCNO.O || 0;
-  const gip: number = userRef.data().gipoint || 0;
+  const gip: number = userRef.data().giPoint || 0;
   return { currentReward, prevReward ,rewardC, rewardN, rewardO, gip};
 }
 
