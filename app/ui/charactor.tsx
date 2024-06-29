@@ -11,7 +11,8 @@ export default async function CharactorComponent() {
 
   const quote = handleCharactorClick();
   // TODO 1 デバッグ用なので変更する
-  const { currentReward, prevReward } = await fetchReward();
+  // ここでポイント別のやつを取得できるとする
+  const { currentReward, prevReward, rewardC, rewardN, rewardO, gip } = await fetchReward();
   // const currentReward = 104;
 
   const evoThresholdList = [0, 6, 50, 100, 500];
@@ -25,18 +26,18 @@ export default async function CharactorComponent() {
 
   // TODO 1 ガマちゃん分岐成長処理
   // TODO 1 姿を変える
-  // ここでポイント別のやつを取得できるとする
-  const currentRewardOurDoor = 100;
-  const currentRewardKnowledge = 100;
-  const currentRewardCommunity = 101;
+  // ポイント別のやつ(デバッグ用)
+  // const currentRewardOurDoor = 100;
+  // const currentRewardKnowledge = 100;
+  // const currentRewardCommunity = 101;
 
-  const currentRewordList = [currentRewardOurDoor, currentRewardKnowledge, currentRewardCommunity];
+  const currentRewordList = [rewardO, rewardN, rewardC];
   const gamaType = currentRewordList.indexOf(Math.max(...currentRewordList));
   const gamaTypeString = ["アウトドア", "ナレッジ", "コミュニティ"][gamaType];
   const gamaTypeStringColor = "font-bold " + ["text-red-600", "text-blue-600", "text-yellow-600"][gamaType];
 
   // TODO 1 GIポイント
-  const currentGiPoint = 10;
+  // const currentGiPoint = 10;
 
   return (
     <div className="w-full">
@@ -90,7 +91,7 @@ export default async function CharactorComponent() {
           ) : (
             <span className="text-black">--pt</span>
           )})</div>
-        <div className="row-start-3 col-start-3 col-end-5 text-sm">GIポイント: <span className="font-bold text-green-600">{currentGiPoint}pt</span></div>
+        <div className="row-start-3 col-start-3 col-end-5 text-sm">GIポイント: <span className="font-bold text-green-600">{gip}pt</span></div>
 
         <div className="row-start-1 col-start-2 col-end-5 place-self-start self-center text-sm">
           {evoState != 4 && (
@@ -111,9 +112,9 @@ export default async function CharactorComponent() {
           )}
           {(evoState == 4) && (
             <ProgressBar >
-              <ProgressBar variant="danger" now={currentRewardOurDoor} key={1} max={500} />
-              <ProgressBar variant="info" now={currentRewardKnowledge} key={2} max={500} />
-              <ProgressBar variant="warning" now={currentRewardCommunity} key={3} max={500} />
+              <ProgressBar variant="danger" now={rewardO} key={1} max={500} />
+              <ProgressBar variant="info" now={rewardN} key={2} max={500} />
+              <ProgressBar variant="warning" now={rewardC} key={3} max={500} />
             </ProgressBar>
           )}
         </div>

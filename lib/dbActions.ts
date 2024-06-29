@@ -222,7 +222,7 @@ export async function fetchReward() {
   const rewardN: number = rewardFieldCNO.N || 0;
   const rewardO: number = rewardFieldCNO.O || 0;
   const gip: number = userRef.data().giPoint || 0;
-  return { currentReward, prevReward ,rewardC, rewardN, rewardO, gip};
+  return { currentReward, prevReward, rewardC, rewardN, rewardO, gip};
 }
 
 export async function patchReward(rewardPoint: string, rewardField: string, gipoint: string) {
