@@ -23,7 +23,8 @@ export default function WatchCardComponent() {
         <div className="grid grid-cols-2 justify-items-center items-center justify-self-center w-10/12">
           {placeIdList1.map((placeId, index) => {
             return (
-              <CongestionComponent docId={placeId} />
+              <CongestionComponent key={index} docId={placeId} />
+              
             );
           })}
 
@@ -37,7 +38,7 @@ export default function WatchCardComponent() {
           {/* TODO 1 ここもスケルトン化しなきゃなのかなぁ */}
           {isExpanded && placeIdList2.map((placeId, index) => {
             return (
-              <CongestionComponent docId={placeId} />
+              <CongestionComponent key={index} docId={placeId} />
             );
           })}
 
@@ -53,7 +54,7 @@ export default function WatchCardComponent() {
           バスプールの混雑度
         </div>
         <div className="grid grid-cols-1 justify-items-center items-center justify-self-center w-10/12">
-          <CongestionComponent docId={"BusWeb1"} />
+          <CongestionComponent key={1} docId={"BusWeb1"} />
         </div>
         <div className="justify-self-center items-center text-center mt-2">
           <Link href="https://jweb.kyoto-su.ac.jp/webcam/" className="text-sm text-white bg-green-700 py-2 px-4 rounded-md font-bold no-underline"          >

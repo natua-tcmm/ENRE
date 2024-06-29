@@ -5,11 +5,12 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { fetchPlace2 } from "@/lib/dbActions";
 
 type Props = {
+  key: number,
   docId: string,
 }
 
 
-export default function CongestionComponent({ docId }: Props) {
+export default function CongestionComponent({key, docId}: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const ref = useRef(false);
