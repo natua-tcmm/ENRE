@@ -88,7 +88,7 @@ export default function LoadingComponent() {
     };
   }, [router, searchParams]);
 
-  {/* TODO 3 きれいにする okamoto手を加える */ }
+  {/* okamoto手を加える */ }
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen py-2">
