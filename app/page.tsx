@@ -40,7 +40,6 @@ export default async function Home() {
             <div className="row-start-2 pt-2 ml-2 mr-2">
               <div className="grid grid-rows-max-content-layout-4 grid-cols-2 gap-2 w-full">
                 <div className="row-start-1 col-start-1 col-end-3">
-                  {/* TODO 1 スケルトン */}
                   <Suspense fallback={<CharacterSkeleton />}>
                     <CharactorComponent />
                   </Suspense>
