@@ -8,7 +8,7 @@ export default function WatchCardComponent() {
 
   const [isExpanded, setIsExpanded] = useState(false);
   const placeIdList1 = ["Miya2", "Lounge1", "Musu2", "Hall1", "Ichi1"];
-  const placeIdList2 = ["Libre2", "Musu2", "Fuji1", "Hall2", "Yasai"];
+  const placeIdList2 = ["Libre2", "Fuji1", "Hall2", "Yasai"];
 
 
   return (
