@@ -4,7 +4,6 @@ import packageJson from "../../package.json";
 
 export default function AboutComponent() {
   const version = packageJson.version;
-  // TODO 3 きれいにする
   return (
     <main className="flex flex-col items-center justify-center min-h-screen px-3">
       <Image

@@ -34,7 +34,6 @@ export default function WatchCardComponent() {
             </Link>
             に参加しませんか？
           </div>
-          {/* TODO 1 ここもスケルトン化しなきゃなのかなぁ */}
           {isExpanded && placeIdList2.map((placeId, index) => {
             return (
               <CongestionComponent key={index} docId={placeId} />
