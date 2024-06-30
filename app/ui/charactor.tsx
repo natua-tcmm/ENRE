@@ -11,6 +11,12 @@ export default async function CharactorComponent() {
 
   const quote = handleCharactorClick();
   const { currentReward, prevReward, rewardC, rewardN, rewardO, gip } = await fetchReward();
+  // const currentReward =98
+  // const prevReward = 110
+  // const rewardC = 40
+  // const rewardN = 40
+  // const rewardO = 41
+  // const gip = 44
 
   const evoThresholdList = [0, 6, 50, 100, 500];
   const evoState =
@@ -19,14 +25,13 @@ export default async function CharactorComponent() {
         evoThresholdList[2] <= currentReward && currentReward < evoThresholdList[3] ? 3 :
           evoThresholdList[3] <= currentReward && currentReward < evoThresholdList[4] ? 4 : 4;
   const nextEvoThreshold = evoThresholdList[evoState];
-  const imageName = "/icon" + evoState + ".png";
-
-  // TODO 1 姿を変える
 
   const currentRewordList = [rewardO, rewardN, rewardC];
   const gamaType = currentRewordList.indexOf(Math.max(...currentRewordList));
   const gamaTypeString = ["アウトドア", "ナレッジ", "コミュニティ"][gamaType];
   const gamaTypeStringColor = "font-bold " + ["text-red-600", "text-blue-600", "text-yellow-600"][gamaType];
+
+  const imageName = "/icon" + evoState + ( evoState==4 ? "-"+gamaType : "" ) + ".png";
 
   return (
     <div className="w-full">
