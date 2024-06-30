@@ -47,12 +47,13 @@ export default function LoadingComponent() {
       await postCollectionInLogs(programInfo.title, place, "QRコード読み取り");
       await patchCurrentPlace(place);
       const participatedEvents = await fetchParticipatedEvents();
+      if (participatedEvents[Number(qrId)] <= 0) {
+        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`, `${qrInfo.rewardGIP}`);
+      }
       if (qrInfo.type === "checkin") {
         if (participatedEvents[Number(qrId)] > 0) {
           setParticipated(true);
-          return;
         }
-        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`, `${qrInfo.rewardGIP}`);
         await patchCheckinProgramIds(`${qrInfo.programId}`);
         setCheckin(true);
         setLink(
@@ -63,11 +64,10 @@ export default function LoadingComponent() {
       } else if (qrInfo.type === "checkout") {
         if (participatedEvents[Number(qrId)] > 0) {
           setParticipated(true);
-          return;
+        } else if (qrInfo.type === "checkout") {
+          await patchParticipatedEvents(qrId);
         }
-        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`, `${qrInfo.rewardGIP}`);
         await patchCheckoutProgramIds(`${qrInfo.programId}`);
-        await patchParticipatedEvents(qrId);
         setCheckout(true);
         setLink(
           `/photoalbum/postjoinshare?programId=${qrInfo.programId}&rewardPoint=${programInfo.rewardPoint}&rewardField=${programInfo.rewardField}&rewardGIP=${programInfo.rewardGIP}`
@@ -77,7 +77,6 @@ export default function LoadingComponent() {
           setParticipated(true);
           return;
         }
-        await patchReward(`${qrInfo.rewardPoint}`, `${qrInfo.rewardField}`, `${qrInfo.rewardGIP}`);
         router.push(
           `${qrInfo.type}?programId=${qrInfo.programId}&place=${place}&rewardPoint=${programInfo.rewardPoint}&rewardField=${programInfo.rewardField}&rewardGIP=${programInfo.rewardGIP}`
         );
@@ -92,7 +91,7 @@ export default function LoadingComponent() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen py-2">
-      {participated ? (
+      {/* {participated ? (
         <div className="flex min-h-screen flex-col items-center justify-center pb-20">
           <h1 className="text-2xl font-bold text-center mb-10">
             このQRコードからは
@@ -105,7 +104,7 @@ export default function LoadingComponent() {
             </button>
           </Link>
         </div>
-      ) : (
+      ) : ( */}
         <>
           {!checkin && !checkout && (
             <div className="flex min-h-screen flex-col items-center justify-between pb-20">
@@ -177,7 +176,7 @@ export default function LoadingComponent() {
             </div>
           )}
         </>
-      )}
+      {/* )} */}
     </main>
   );
 }
