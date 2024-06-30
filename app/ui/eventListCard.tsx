@@ -36,7 +36,7 @@ export default function EventListComponent({ spotsInfo }: Spots) {
               </div>
             );
           })}
-        {/* TODO 3 スクロールで隠れる問題わからなかったので無理やり対処 */}
+        {/* スクロールで隠れる問題わからなかったので無理やり対処 */}
         <div className="absolute p-1 h-28 w-full md:w-5/12 items-center"></div>
         </div>
       </div>
