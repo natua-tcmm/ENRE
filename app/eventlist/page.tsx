@@ -24,11 +24,11 @@ export default function EventList(
         <Suspense fallback={<HeaderSkeleton />}>
             <HeaderComponent />
         </Suspense>
-        {/* TODO 1 マップ 絞り込み(ButtonCompornentをけしてDetailに書く) 一番下
+        TODO 1 マップ 絞り込み(ButtonCompornentをけしてDetailに書く) 一番下
         <EventButtonComponent />
-        <EventDetail2Component key={key} value={value} /> */}
+        <EventDetail2Component key={key} value={value} />
 
-        <p className="text-lg font-bold text-center">
+        {/* <p className="text-lg font-bold text-center">
           現在メンテナンス中です
         </p>
         <Link
@@ -37,7 +37,7 @@ export default function EventList(
             className="m-0 text-blue-600 underline"
           >
             イベントリストはこちらから
-          </Link>
+          </Link> */}
         <FooterComponent />
     </main>
   );
