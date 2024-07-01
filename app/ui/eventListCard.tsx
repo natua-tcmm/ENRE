@@ -16,6 +16,7 @@ type Spots = {
     owner: string,
     schedule: {open: string, close: string, day: string}[];
     isOpen: boolean,
+    exit: string,
   }[];
 };
 
@@ -37,6 +38,7 @@ export default function EventListComponent({ spotsInfo }: Spots) {
       owner: string,
       schedule: {open: string, close: string, day: string}[];
       isOpen: boolean,
+      exit: string,
   }[]) => {
     let month = date.getMonth() + 1
     let day = date.getDate()
@@ -73,6 +75,7 @@ export default function EventListComponent({ spotsInfo }: Spots) {
       owner: string,
       schedule: {open: string, close: string, day: string}[];
       isOpen: boolean,
+      exit: string,
   }[]) => {
     let year = date.getFullYear()
     let month = date.getMonth() + 1

@@ -15,6 +15,7 @@ type Spots = {
   owner: string,
   schedule: {open: string, close: string, day: string}[];
   isOpen: boolean,
+  exit: string,
 };
 
 type Props = {
@@ -78,6 +79,7 @@ export default function DetailCardComponent({
         )}
         <p className="text-sm mx-3 mb-3 mt-2">{spotInfo.content}</p>
         <p className="text-xs text-end mb-1 mr-2">{spotInfo.owner} {spotInfo.place && (<>({spotInfo.place})</>)}</p>
+        <p className="text-xs text-end mb-1 mr-2">途中退出：{spotInfo.exit}</p>
 
         {spotInfo.schedule != null && (
           <>
