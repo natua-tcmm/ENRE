@@ -21,6 +21,7 @@ export default async function CheckinDetailComponent() {
         owner: item.programInfo.owner,
         schedule: item.programInfo.schedule,
         isOpen: item.programInfo.isOpen,
+        exit: item.programInfo.exit,
       };
     }
     return {
@@ -32,6 +33,7 @@ export default async function CheckinDetailComponent() {
       owner: item.programInfo.owner,
       schedule: item.programInfo.schedule,
       isOpen: item.programInfo.isOpen,
+      exit: item.programInfo.exit,
     };
   });
 

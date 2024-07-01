@@ -38,6 +38,7 @@ export default async function EventDetail2Component({key, value}: Props) {
           owner: item.owner,
           schedule: item.schedule,
           isOpen: item.isOpen,
+          exit: item.exit,
         };
     // }
   });
