@@ -36,7 +36,7 @@ export default function EventList(
             target="_blank"
             className="m-0 text-blue-600 underline"
           >
-            リストはこちらでも確認できます
+            イベントリストはこちらから
           </Link>
         <FooterComponent />
     </main>
