@@ -387,6 +387,7 @@ export async function fetchAllOnlinePrograms() {
 }
 
 export async function fetchAllPrograms() {
+  console.log("Program fetch Executed!")
   const programRef = await adminDB.collection("program").get();
   const programList: any[] = programRef.docs.map((program: any) => {
     const programData = program.data();
@@ -527,7 +528,7 @@ export async function fetchParticipatedEvents() {
   // };
   const initialParticipatedEvents: { [key: number]: number } = {};
   {/* ゆくゆくは自動でイベント数用意されるようにしたい */}
-  for (let i = 1; i <= 54; i++) {
+  for (let i = 1; i <= 57; i++) {
     initialParticipatedEvents[i] = 0;
   }
   const user = await getUserFromCookie();
