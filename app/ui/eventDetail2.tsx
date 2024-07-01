@@ -36,6 +36,7 @@ export default async function EventDetail2Component({key, value}: Props) {
           condition: item.condition,
           place: place.name,
           owner: item.owner,
+          schedule: item.schedule,
           isOpen: item.isOpen,
         };
     // }
