@@ -5,31 +5,42 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { fetchPlace2 } from "@/lib/dbActions";
 
 type Props = {
-  key: number,
-  docId: string,
+  name:string, congestion:number, threshold:Array<number>
 }
 
+export default function CongestionComponent({name, congestion, threshold}:Props) {
 
-export default function CongestionComponent({ key, docId }: Props) {
-  const router = useRouter();
-  const ref = useRef(false);
-  const [name, setName] = useState("");
-  const [congestion, setCongestion] = useState<number>(0);
-  const [threshold, setThreshold] = useState<Array<number>>();
+  // const router = useRouter();
+  // const ref = useRef(false);
 
-  useEffect(() => {
-    if (ref.current) return;
-    (async () => {
-      const placeList = await fetchPlace2(docId);
-      setName(placeList.placeName);
-      setCongestion(placeList.placeCongestion);
-      setThreshold(placeList.placeThreshold);
-    })();
+  // 場所情報
+  // const placeName =
+  //   docId=="BusWeb1" ? "バスプール(京都バス側)":
+  //   docId=="Lounge1" ? "天地館1Fラウンジ":
+  //   docId=="Hall1"   ? "サン/スガキヤ":
+  //   docId=="Ichi1"   ? "壱馬力":
+  //   docId=="Libre2"  ? "リブレ":
+  //   docId=="Fuji1"   ? "ふじカツ":
+  //   docId=="Hall2"   ? "すき家":
+  //   docId=="Musu2"   ? "むすびキッチン":
+  //   docId=="Miya2"   ? "MIYAKO製麺":
+  //   docId=="Yasai"   ? "やさい食堂": "取得に失敗しました";
 
-    return () => {
-      ref.current = true;
-    };
-  }, [router, docId]);
+  // setName(placeName);
+
+  // useEffect(() => {
+  //   if (ref.current) return;
+  //   (async () => {
+  //     const placeList = await fetchPlace2(docId);
+  //     setName(placeList.placeName);
+  //     setCongestion(placeList.placeCongestion);
+  //     setThreshold(placeList.placeThreshold);
+  //   })();
+
+  //   return () => {
+  //     ref.current = true;
+  //   };
+  // }, [router, docId]);
 
   const congestionLevel =
     threshold && congestion < threshold[1] ? 1 :
