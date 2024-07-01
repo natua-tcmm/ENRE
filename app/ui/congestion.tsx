@@ -32,10 +32,10 @@ export default function CongestionComponent({ key, docId }: Props) {
   }, [router, docId]);
 
   const congestionLevel =
-    threshold && congestion < threshold[1] ? 1 :
-    threshold && threshold[1] <= congestion && threshold[2] < congestion ? 2 :
-    threshold && threshold[2] <= congestion && threshold[3] < congestion ? 3 :
-    threshold && threshold[3] <= congestion ? 4 : 1;
+    threshold && congestion < threshold[0] ? 1 :
+    threshold && threshold[0] <= congestion && congestion < threshold[1] ? 2 :
+    threshold && threshold[1] <= congestion && congestion < threshold[2] ? 3 :
+    threshold && threshold[2] <= congestion ? 4 : 1;
 
   // const congestionLevelColor = ["blue-500","green-500","yellow-500","red-500"][congestionLevel-1];
   const congestionLevelColorCode = ["#3B82F6", "#10B981", "#F59E0B", "#EF4444"][congestionLevel - 1];
