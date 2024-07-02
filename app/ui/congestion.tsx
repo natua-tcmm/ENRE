@@ -1,7 +1,3 @@
-"use client";
-
-import { useState, useEffect, useRef } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
 import { fetchPlace2 } from "@/lib/dbActions";
 
 type Props = {
@@ -9,27 +5,12 @@ type Props = {
   docId: string,
 }
 
+export default async function CongestionComponent({ key, docId }: Props) {
 
-export default function CongestionComponent({ key, docId }: Props) {
-  const router = useRouter();
-  const ref = useRef(false);
-  const [name, setName] = useState("");
-  const [congestion, setCongestion] = useState<number>(0);
-  const [threshold, setThreshold] = useState<Array<number>>();
-
-  useEffect(() => {
-    if (ref.current) return;
-    (async () => {
-      const placeList = await fetchPlace2(docId);
-      setName(placeList.placeName);
-      setCongestion(placeList.placeCongestion);
-      setThreshold(placeList.placeThreshold);
-    })();
-
-    return () => {
-      ref.current = true;
-    };
-  }, [router, docId]);
+    const placeList = await fetchPlace2(docId);
+    const name = placeList.placeName;
+    const congestion = placeList.placeCongestion;
+    const threshold = placeList.placeThreshold;
 
   const congestionLevel =
     threshold && congestion < threshold[0] ? 1 :
